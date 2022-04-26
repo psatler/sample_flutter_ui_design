@@ -9,6 +9,23 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  plugins:
+    - flutter_hooks_lint_plugin
+
+flutter_hooks_lint_plugin:
+  exhaustive_keys:
+    # hooks do not change over the state's lifecycle 
+    constant_hooks:
+      # default values
+      - useRef
+      - useIsMounted
+      - useFocusNode
+      - useContext
+
+      # your custom hooks here
+      # - useConstantValue
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
