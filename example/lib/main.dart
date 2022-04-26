@@ -1,6 +1,7 @@
 import 'package:example/pages/home_page.dart';
 import 'package:example/pages/showcase_vanilla/showcase_view_vanilla.dart';
 import 'package:example/pages/storybook/storybook.dart';
+import 'package:example/pages/storybook/storybook_official_example.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => const HomePage(),
         ShowcaseViewVanilla.routeName: (context) => const ShowcaseViewVanilla(),
         StorybookFlutter.routeName: (context) => const StorybookFlutter(),
+        StorybookOfficialExample.routeName: (context) =>
+            const StorybookOfficialExample(),
       },
     );
   }
