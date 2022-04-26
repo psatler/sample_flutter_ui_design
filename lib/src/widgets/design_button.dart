@@ -4,8 +4,8 @@ import 'package:sample_flutter_design_ui/src/shared/styles.dart';
 
 // ripple effect: https://stacksecrets.com/flutter/adding-inkwell-splash-ripple-effect-to-custom-widgets-in-flutter
 
-class UiButton extends StatelessWidget {
-  const UiButton({
+class DesignButton extends StatelessWidget {
+  const DesignButton({
     Key? key,
     required this.title,
     this.disabled = false,
@@ -15,7 +15,7 @@ class UiButton extends StatelessWidget {
   })  : outline = false,
         super(key: key);
 
-  const UiButton.outline({
+  const DesignButton.outline({
     Key? key,
     required this.title,
     this.onTap,

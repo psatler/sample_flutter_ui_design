@@ -10,13 +10,14 @@ class ExamplePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
-          UiText.body('Design System Demo'),
-          const UiButton(
+          DesignText.body('Design System Demo'),
+          const DesignButton(
             title: 'Button',
             // leading: Icon(Icons.send),
             // busy: true,
             // disabled: true,
           ),
+          const DesignInputField(),
         ],
       ),
     );
