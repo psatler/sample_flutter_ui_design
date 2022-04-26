@@ -1,4 +1,5 @@
-import 'package:example/pages/showcase_view_vanilla.dart';
+import 'package:example/pages/showcase_vanilla/showcase_view_vanilla.dart';
+import 'package:example/pages/storybook/storybook.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
           child: Column(
         children: [
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
           ListTile(
             title: const Text('Flutter Storybook'),
             onTap: () {
-              Navigator.pushNamed(context, ShowcaseViewVanilla.routeName);
+              Navigator.pushNamed(context, StorybookFlutter.routeName);
             },
           ),
         ],
