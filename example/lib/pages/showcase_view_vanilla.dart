@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sample_flutter_design_ui/sample_flutter_design_ui.dart';
 
-import 'button_widgets/button_widget.dart';
-import 'input_widgets/input_widgets.dart';
-import 'text_widgets/text_widgets.dart';
+import '../widgets/widgets.dart';
 
-class ExamplePage extends StatelessWidget {
-  const ExamplePage({Key? key}) : super(key: key);
+class ShowcaseViewVanilla extends StatelessWidget {
+  const ShowcaseViewVanilla({Key? key}) : super(key: key);
+
+  static const String routeName = '/showcase_example';
 
   @override
   Widget build(BuildContext context) {

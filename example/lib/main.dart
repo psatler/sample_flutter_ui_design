@@ -1,4 +1,5 @@
-import 'package:example/pages/example_page.dart';
+import 'package:example/home_page.dart';
+import 'package:example/pages/showcase_view_vanilla.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ExamplePage(),
+      // home: const ShowcaseViewVanilla(),
+      initialRoute: '/',
+      routes: {
+        HomePage.routeName: (context) => const HomePage(),
+        ShowcaseViewVanilla.routeName: (context) => const ShowcaseViewVanilla(),
+      },
     );
   }
 }
