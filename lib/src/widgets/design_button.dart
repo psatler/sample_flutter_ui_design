@@ -68,12 +68,16 @@ class DesignButton extends StatelessWidget {
                     children: [
                       if (leading != null) leading!,
                       if (leading != null) const SizedBox(width: 10),
-                      Text(
-                        title,
-                        style: bodyStyle.copyWith(
-                          fontWeight:
-                              !outline ? FontWeight.bold : FontWeight.w400,
-                          color: !outline ? Colors.white : kcPrimaryColor,
+                      Flexible(
+                        // dealing with overflow using Flexible and ellipsis https://stackoverflow.com/a/44580054/13137278
+                        child: Text(
+                          title,
+                          style: bodyStyle.copyWith(
+                            fontWeight:
+                                !outline ? FontWeight.bold : FontWeight.w400,
+                            color: !outline ? Colors.white : kcPrimaryColor,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

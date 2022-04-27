@@ -79,7 +79,7 @@ final _captionStory = Story(
 );
 
 final _textStylesAllStories = Story(
-  name: 'Text Styles/All stories',
+  name: _prefixStoryName('All stories'),
   description: 'All text styles',
   builder: (context) {
     CrossAxisAlignment _crossAxisAlignment = context.knobs.options(
@@ -105,6 +105,7 @@ final _textStylesAllStories = Story(
       ],
     );
 
+    // https://stackoverflow.com/a/68680939/13137278
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 

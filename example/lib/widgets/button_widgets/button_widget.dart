@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sample_flutter_design_ui/sample_flutter_design_ui.dart';
 
 List<Widget> buttonWidgets = [
-  const Center(child: DesignText.headline('Buttons')),
   verticalSpaceSmall,
   DesignText.body('Normal'),
   verticalSpaceSmall,

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
+import 'buttons/buttons.dart';
 import 'text_styles/text_styles.dart';
 
 // https://medium.com/flutter-community/storybook-flutter-storybook-flutter-7fbe23a8188a
@@ -38,11 +39,7 @@ class StorybookFlutter extends StatelessWidget {
         ],
         stories: [
           ...textStylesStories,
-          Story(
-            name: 'Widgets/Text',
-            description: 'Simple text widget.',
-            builder: (context) => const Center(child: Text('Simple text')),
-          ),
+          ...buttonStories,
         ],
       ),
     );

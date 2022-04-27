@@ -22,6 +22,7 @@ class ShowcaseViewVanilla extends StatelessWidget {
             const Center(child: DesignText.headline('Text Styles')),
             ...textWidgets,
             const Divider(),
+            const Center(child: DesignText.headline('Buttons')),
             ...buttonWidgets,
             const Divider(),
             ...inputFields,
