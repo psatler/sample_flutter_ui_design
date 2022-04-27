@@ -134,7 +134,7 @@ final _allButtonPropsStory = Story(
 
 final _buttonAllStories = Story(
   name: _prefixStoryName('All stories'),
-  description: 'All text styles',
+  description: 'All button styles',
   builder: (context) {
     return Scaffold(
       appBar: AppBar(

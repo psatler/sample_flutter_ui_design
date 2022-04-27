@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sample_flutter_design_ui/sample_flutter_design_ui.dart';
 
 List<Widget> inputFields = [
-  const Center(child: DesignText.headline('Input Fields')),
   verticalSpaceSmall,
   DesignText.body('Normal'),
   verticalSpaceSmall,
