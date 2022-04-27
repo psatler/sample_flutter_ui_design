@@ -2,15 +2,10 @@
 
 A new Flutter project.
 
-## Getting Started
+## Deploying example app as Flutter web
 
-This project is a starting point for a Flutter application.
+- https://dev.to/janux_de/automatically-publish-a-flutter-web-app-on-github-pages-3m1f
 
-A few resources to get you started if this is your first Flutter project:
+- github action used to deploy on github pages: https://github.com/bluefireteam/flutter-gh-pages
+  - Changing the directory where the project is: https://github.com/bluefireteam/flutter-gh-pages/blob/main/action.yml#L14
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

@@ -1,0 +1,41 @@
+# https://dev.to/janux_de/automatically-publish-a-flutter-web-app-on-github-pages-3m1f
+# in Pt-BR: https://blog.flutterando.com.br/publicando-suas-paginas-flutter-no-github-pages-utilizando-github-action-ab2701cd1f52
+
+name: Publish Flutter Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Flutter channel
+        uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+      
+      # - name: Testing app
+      #   run: flutter test
+
+      # - name: Build Web
+      #   run: flutter build web --release --base-href '/sample_flutter_ui_design/'
+
+      # https://github.com/bluefireteam/flutter-gh-pages
+      - name: Build Web and deploy to github pages
+      - uses: bluefireteam/flutter-gh-pages@v7 
+        with:
+          workingDir: example
+          baseHref: /sample_flutter_ui_design/
+          # customArgs: --dart-define="apiBaseUrl=${{ secrets.API_BASE_URL }}"
+
+      
