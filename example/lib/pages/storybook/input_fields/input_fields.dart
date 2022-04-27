@@ -1,6 +1,7 @@
 import 'package:example/utils/figma_url_launcher.dart';
 import 'package:example/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:sample_flutter_design_ui/sample_flutter_design_ui.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
@@ -53,6 +54,95 @@ final _showingErrorTextInputFieldStory = Story(
   },
 );
 
+final _withPropsInputFieldStory = Story(
+  name: _prefixStoryName('With custom input props'),
+  description: 'Allows using custom props for input field',
+  builder: (context) {
+    final inputPlaceholderText =
+        context.knobs.text(label: 'Placeholder text', initial: 'Placeholder');
+
+    IconData? _iconData = context.knobs.nullable.options(
+      label: 'Leading icon',
+      initial: Icons.send,
+      options: const [
+        Option(
+          label: 'Send icon',
+          value: Icons.send,
+        ),
+        Option(
+          label: 'Reset TV icon',
+          value: Icons.reset_tv,
+        ),
+        Option(
+          label: 'Wifi icon',
+          value: Icons.wifi,
+        ),
+      ],
+      enabled: false,
+    );
+
+    IconData? _iconDataTrailing = context.knobs.nullable.options(
+      label: 'Trailing icon',
+      initial: Icons.clear,
+      options: const [
+        Option(
+          label: 'Clear icon',
+          value: Icons.clear,
+        ),
+        Option(
+          label: 'Send icon',
+          value: Icons.send,
+        ),
+      ],
+      enabled: false,
+    );
+
+    final errorText = context.knobs.nullable.text(
+      label: 'Error text',
+      initial: 'Error text',
+      enabled: false,
+    );
+
+    final isPassword =
+        context.knobs.boolean(label: 'Is password?', initial: false);
+
+    final isEnabled =
+        context.knobs.boolean(label: 'Is enabled?', initial: true);
+
+    Widget? _trailing() {
+      if (_iconDataTrailing != null) {
+        return MouseRegion(
+          // https://www.youtube.com/watch?v=1oF3pI5umck&ab_channel=Flutter
+          child: Icon(_iconDataTrailing),
+          cursor: SystemMouseCursors.click,
+        );
+      }
+      return null;
+    }
+
+    return HookBuilder(builder: (context) {
+      final controller = useTextEditingController();
+
+      return SafeArea(
+        child: DesignInputField(
+          controller: controller,
+          leading: _iconData != null ? Icon(_iconData) : null,
+          trailing: _trailing(),
+          placeholder: inputPlaceholderText,
+          errorText: errorText,
+          isPassword: isPassword,
+          isEnabled: isEnabled,
+          trailingTapped: () {
+            if (_iconDataTrailing != null && _iconDataTrailing == Icons.clear) {
+              controller.clear();
+            }
+          },
+        ),
+      );
+    });
+  },
+);
+
 final _inputFieldsAllStories = Story(
   name: _prefixStoryName('All stories'),
   description: 'All input fields',
@@ -85,4 +175,5 @@ Iterable<Story> inputFieldStories = [
   _withTrailingIconInputFieldStory,
   _passwordInputFieldStory,
   _showingErrorTextInputFieldStory,
+  _withPropsInputFieldStory,
 ];

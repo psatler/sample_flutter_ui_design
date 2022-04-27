@@ -52,7 +52,7 @@ class DesignInputField extends StatelessWidget {
         ),
         filled: true,
         enabled: isEnabled,
-        fillColor: kcVeryLightGreyColor,
+        // fillColor: kcVeryLightGreyColor,
         errorText: errorText,
         border: circularBorder.copyWith(
           borderSide: const BorderSide(color: kcLightGreyColor),
