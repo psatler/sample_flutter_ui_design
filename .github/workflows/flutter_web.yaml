@@ -32,7 +32,7 @@ jobs:
 
       # https://github.com/bluefireteam/flutter-gh-pages
       - name: Build Web and deploy to github pages
-      - uses: bluefireteam/flutter-gh-pages@v7 
+        uses: bluefireteam/flutter-gh-pages@v7 
         with:
           workingDir: example
           baseHref: /sample_flutter_ui_design/

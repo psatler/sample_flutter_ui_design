@@ -4,6 +4,8 @@ A new Flutter project.
 
 ## Deploying example app as Flutter web
 
+- The web version will be deployed at https://psatler.github.io/sample_flutter_ui_design/
+
 - https://dev.to/janux_de/automatically-publish-a-flutter-web-app-on-github-pages-3m1f
 
 - github action used to deploy on github pages: https://github.com/bluefireteam/flutter-gh-pages
