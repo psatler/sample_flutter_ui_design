@@ -22,6 +22,10 @@ final _defaultPlugins = initializePlugins(
   initialDeviceFrameData: DeviceFrameData(
     device: Devices.ios.iPhone13,
   ),
+  enableContents: true,
+  enableKnobs: true,
+  enableDeviceFrame: true,
+  enableThemeMode: true,
 );
 
 class StorybookFlutter extends StatelessWidget {
