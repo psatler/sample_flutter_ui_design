@@ -20,9 +20,9 @@ class DesignButton extends StatelessWidget {
     required this.title,
     this.onTap,
     this.leading,
-  })  : disabled = false,
-        busy = false,
-        outline = true,
+    this.busy = false,
+    this.disabled = false,
+  })  : outline = true,
         super(key: key);
 
   final String title;
@@ -34,6 +34,8 @@ class DesignButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool disabledStatus = disabled || onTap == null;
+
     return AnimatedContainer(
       duration: const Duration(milliseconds: 350),
       width: double.infinity,
@@ -41,14 +43,14 @@ class DesignButton extends StatelessWidget {
       alignment: Alignment.center,
       decoration: !outline
           ? BoxDecoration(
-              color: !disabled ? kcPrimaryColor : kcMediumGreyColor,
+              color: !disabledStatus ? kcPrimaryColor : kcMediumGreyColor,
               borderRadius: BorderRadius.circular(8),
             )
           : BoxDecoration(
-              color: Colors.transparent,
+              color: !disabledStatus ? Colors.transparent : kcLightGreyColor,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: kcPrimaryColor,
+                color: !disabledStatus ? kcPrimaryColor : kcMediumGreyColor,
                 width: 1,
               ),
             ),
@@ -61,7 +63,7 @@ class DesignButton extends StatelessWidget {
                 type: MaterialType.transparency,
                 child: InkWell(
                   borderRadius: BorderRadius.circular(8),
-                  onTap: disabled ? null : () {},
+                  onTap: disabledStatus ? null : () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,

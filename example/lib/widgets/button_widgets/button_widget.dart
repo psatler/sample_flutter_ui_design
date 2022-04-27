@@ -5,21 +5,36 @@ List<Widget> buttonWidgets = [
   verticalSpaceSmall,
   DesignText.body('Normal'),
   verticalSpaceSmall,
-  const DesignButton(title: 'SIGN IN'),
+  DesignButton(
+    title: 'SIGN IN',
+    onTap: () {},
+  ),
   verticalSpaceSmall,
   DesignText.body('Disabled'),
   verticalSpaceSmall,
-  const DesignButton(title: 'SIGN IN', disabled: true),
+  DesignButton(
+    title: 'SIGN IN',
+    disabled: true,
+    onTap: () {},
+  ),
   verticalSpaceSmall,
   DesignText.body('Busy'),
   verticalSpaceSmall,
-  const DesignButton(title: 'SIGN IN', busy: true),
+  DesignButton(
+    title: 'SIGN IN',
+    busy: true,
+    onTap: () {},
+  ),
   verticalSpaceSmall,
   DesignText.body('Outline'),
   verticalSpaceSmall,
-  const DesignButton.outline(
+  DesignButton.outline(
     title: 'Select location',
-    leading: Icon(Icons.send, color: kcPrimaryColor),
+    leading: const Icon(
+      Icons.send,
+      color: kcPrimaryColor,
+    ),
+    onTap: () {},
   ),
   verticalSpaceLarge,
 ];
