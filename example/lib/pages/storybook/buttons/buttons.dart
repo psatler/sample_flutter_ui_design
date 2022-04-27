@@ -1,5 +1,6 @@
 import 'package:example/utils/figma_url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 import 'package:example/widgets/widgets.dart';
@@ -74,17 +75,14 @@ final _allButtonPropsStory = Story(
   name: _prefixStoryName('All button props'),
   description: 'It allows to customize the props of the button',
   builder: (context) {
-    final buttonText =
-        context.knobs.text(label: 'Button text', initial: 'Sign In');
-
     final bool isDisabled = context.knobs.boolean(
       label: 'Disabled button',
-      initial: true,
+      initial: false,
     );
 
     final bool isBusy = context.knobs.boolean(
       label: 'Simulate busy state',
-      initial: true,
+      initial: false,
     );
 
     final bool withOutline = context.knobs.boolean(
@@ -92,12 +90,35 @@ final _allButtonPropsStory = Story(
       initial: true,
     );
 
+    final buttonText =
+        context.knobs.text(label: 'Button text', initial: 'Sign In');
+
+    IconData _iconData = context.knobs.options(
+      label: 'Icon for Outlined button',
+      initial: Icons.send,
+      description: 'Alignment of the text (left, center, right)',
+      options: const [
+        Option(
+          label: 'Send icon',
+          value: Icons.send,
+        ),
+        Option(
+          label: 'Figma icon',
+          value: FontAwesomeIcons.figma,
+        ),
+        Option(
+          label: 'Wifi icon',
+          value: Icons.wifi,
+        ),
+      ],
+    );
+
     if (withOutline) {
       return DesignButton.outline(
         title: buttonText,
         disabled: isDisabled,
         busy: isBusy,
-        leading: const Icon(Icons.send, color: kcPrimaryColor),
+        leading: Icon(_iconData, color: kcPrimaryColor),
         onTap: () {},
       );
     }
@@ -122,13 +143,11 @@ final _buttonAllStories = Story(
           figmaUrlLauncher('https://www.figma.com/'),
         ],
       ),
-      body: Center(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ...buttonWidgets, // defined in eexample/lib/widgets/button_widgets/button_widget.dart
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ...buttonWidgets, // defined in eexample/lib/widgets/button_widgets/button_widget.dart
+        ],
       ),
     );
   },
