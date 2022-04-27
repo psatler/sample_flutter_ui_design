@@ -20,8 +20,7 @@ final _headlineStory = Story(
   name: _prefixStoryName('Headline'),
   description: 'headline - bold 30',
   builder: (context) {
-    final text =
-        context.knobs.text(label: 'Insert text', initial: 'Heading Three');
+    final text = context.knobs.text(label: 'Insert text', initial: 'Headline');
     return DesignText.headline(text);
   },
 );
@@ -83,11 +82,45 @@ final _textStylesAllStories = Story(
   name: 'Text Styles/All stories',
   description: 'All text styles',
   builder: (context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ...textWidgets, // defined in example/lib/pages/showcase_vanilla/showcase_view_vanilla.dart
+    CrossAxisAlignment _crossAxisAlignment = context.knobs.options(
+      label: 'Pick a horizontal alignment',
+      initial: CrossAxisAlignment.start,
+      description: 'Alignment of the text (left, center, right)',
+      options: const [
+        Option(
+          label: 'Left',
+          value: CrossAxisAlignment.start,
+          description: 'Left alignment',
+        ),
+        Option(
+          label: 'Center',
+          value: CrossAxisAlignment.center,
+          description: 'Center alignment',
+        ),
+        Option(
+          label: 'Right',
+          value: CrossAxisAlignment.end,
+          description: 'Right alignment',
+        ),
       ],
+    );
+
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+
+    print('isDarkMode $isDarkMode');
+
+    return Scaffold(
+      appBar: AppBar(title: const DesignText.subheading('All Stories')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: _crossAxisAlignment,
+          children: [
+            ...textWidgets, // defined in example/lib/pages/showcase_vanilla/showcase_view_vanilla.dart
+          ],
+        ),
+      ),
     );
   },
 );

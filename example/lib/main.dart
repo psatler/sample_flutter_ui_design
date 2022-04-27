@@ -2,6 +2,7 @@ import 'package:example/pages/home_page.dart';
 import 'package:example/pages/showcase_vanilla/showcase_view_vanilla.dart';
 import 'package:example/pages/storybook/storybook.dart';
 import 'package:example/pages/storybook/storybook_official_example.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: kReleaseMode ? false : true,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
