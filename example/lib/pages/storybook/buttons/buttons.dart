@@ -1,3 +1,4 @@
+import 'package:example/utils/figma_url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
@@ -115,7 +116,12 @@ final _buttonAllStories = Story(
   description: 'All text styles',
   builder: (context) {
     return Scaffold(
-      appBar: AppBar(title: const DesignText.subheading('All Stories')),
+      appBar: AppBar(
+        title: const DesignText.subheading('All Stories'),
+        actions: [
+          figmaUrlLauncher('https://www.figma.com/'),
+        ],
+      ),
       body: Center(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,

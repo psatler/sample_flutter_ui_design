@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_hooks: ^0.18.3
   storybook_flutter: ^0.10.1
+  url_launcher: ^6.1.0
+  font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
   flutter_test:
