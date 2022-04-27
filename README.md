@@ -18,6 +18,10 @@ know whether this package might be useful for them.
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
 
+### Mobile vanilla
+
+- ![mobile-vanilla](/.github/assets/simulator.gif)
+
 ## Getting started
 
 TODO: List prerequisites and provide or point to information on how to
