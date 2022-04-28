@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:example/utils/iframe_storybook_plugin.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -41,6 +42,7 @@ class StorybookFlutter extends StatelessWidget {
         initialStory: textStylesStories.first.name,
         plugins: [
           ..._defaultPlugins,
+          IframeStoryBookPlugin(),
         ],
         stories: [
           ...textStylesStories,
