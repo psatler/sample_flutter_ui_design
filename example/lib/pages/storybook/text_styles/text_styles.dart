@@ -1,4 +1,6 @@
-import 'package:example/utils/figma_url_launcher.dart';
+import 'dart:developer';
+
+import 'package:example/utils/prefix_figma_url.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
@@ -9,9 +11,7 @@ String _prefixStoryName(String name) => 'Text Styles/$name';
 
 final _heading1Story = Story(
   name: _prefixStoryName('Heading 1'),
-  description:
-      "https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2450%3A1245",
-  // description: 'h1 - title - regular 34',
+  description: 'h1 - title - regular 34',
   builder: (context) {
     final text =
         context.knobs.text(label: 'Insert text', initial: 'Heading One');
@@ -21,8 +21,8 @@ final _heading1Story = Story(
 
 final _headlineStory = Story(
   name: _prefixStoryName('Headline'),
-  description: 'https://flutter.dev/',
-  // description: 'headline - bold 30',
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2406%3A989'),
   builder: (context) {
     final text = context.knobs.text(label: 'Insert text', initial: 'Headline');
     return DesignText.headline(text);
@@ -84,20 +84,9 @@ final _captionStory = Story(
 
 final _textStylesAllStories = Story(
   name: _prefixStoryName('All stories'),
-  // description: 'All text styles',
-  description:
-      "https://api.flutter.dev/flutter/widgets/HtmlElementView-class.html",
-
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2381%3A1176'),
   builder: (context) {
-    context.knobs.nullable.text(
-      label: 'figma url',
-      initial:
-          "https://www.figma.com/file/gLlVn5sbXRlEtYDyfY4Om7/Pablo-Satler's-team-library?node-id=1%3A37",
-      enabled: false,
-    );
-
-    // Provider.of<FigmaUrlNotifier>(context, listen: false).figmaUrl = 'dafasdf';
-
     CrossAxisAlignment _crossAxisAlignment = context.knobs.options(
       label: 'Pick a horizontal alignment',
       initial: CrossAxisAlignment.start,
@@ -124,21 +113,11 @@ final _textStylesAllStories = Story(
     // https://stackoverflow.com/a/68680939/13137278
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
-
-    print('isDarkMode $isDarkMode');
+    log('isDarkMode $isDarkMode');
 
     return Scaffold(
       appBar: AppBar(
         title: const DesignText.subheading('All Stories'),
-        actions: [
-          figmaUrlLauncher('https://www.figma.com/'),
-          // IconButton(
-          //   onPressed: () {
-          //     context.read<FigmaUrlNotifier>().figmaUrl = 'figma 123';
-          //   },
-          //   icon: const Icon(Icons.send),
-          // ),
-        ],
       ),
       body: Center(
         child: Column(

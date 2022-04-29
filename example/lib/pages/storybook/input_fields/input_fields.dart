@@ -1,4 +1,4 @@
-import 'package:example/utils/figma_url_launcher.dart';
+import 'package:example/utils/prefix_figma_url.dart';
 import 'package:example/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -56,7 +56,9 @@ final _showingErrorTextInputFieldStory = Story(
 
 final _withPropsInputFieldStory = Story(
   name: _prefixStoryName('With custom input props'),
-  description: 'Allows using custom props for input field',
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816'),
+  // description: 'Allows using custom props for input field',
   builder: (context) {
     final inputPlaceholderText =
         context.knobs.text(label: 'Placeholder text', initial: 'Placeholder');
@@ -145,14 +147,13 @@ final _withPropsInputFieldStory = Story(
 
 final _inputFieldsAllStories = Story(
   name: _prefixStoryName('All stories'),
-  description: 'All input fields',
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816'),
+  // description: 'All input fields',
   builder: (context) {
     return Scaffold(
       appBar: AppBar(
         title: const DesignText.subheading('All Stories'),
-        actions: [
-          figmaUrlLauncher('https://www.figma.com/'),
-        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

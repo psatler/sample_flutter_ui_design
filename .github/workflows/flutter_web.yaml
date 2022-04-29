@@ -36,6 +36,7 @@ jobs:
         with:
           workingDir: example
           baseHref: /sample_flutter_ui_design/
+          webRenderer: html
           # customArgs: --dart-define="apiBaseUrl=${{ secrets.API_BASE_URL }}"
 
       
