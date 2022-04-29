@@ -12,3 +12,7 @@ A new Flutter project.
   - Changing the directory where the project is: https://github.com/bluefireteam/flutter-gh-pages/blob/main/action.yml#L14
   - example project which uses the github action: https://github.com/ksch-workflows/registration-desk
 
+## Embedding Figma files in the stories
+
+- [Figma Embed page](https://www.figma.com/developers/embed)
+

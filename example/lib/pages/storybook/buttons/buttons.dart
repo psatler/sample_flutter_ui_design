@@ -1,4 +1,4 @@
-import 'package:example/utils/figma_url_launcher.dart';
+import 'package:example/utils/prefix_figma_url.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -10,7 +10,9 @@ String _prefixStoryName(String name) => 'Buttons/$name';
 
 final _normalButtonStory = Story(
   name: _prefixStoryName('Normal'),
-  description: 'Default button',
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=3069%3A4907'),
+  // description: 'Default button',
   builder: (context) {
     final buttonText =
         context.knobs.text(label: 'Button text', initial: 'Sign In');
@@ -134,14 +136,12 @@ final _allButtonPropsStory = Story(
 
 final _buttonAllStories = Story(
   name: _prefixStoryName('All stories'),
-  description: 'All button styles',
+  description: prefixFigmaUrl(
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2450%3A1245'),
   builder: (context) {
     return Scaffold(
       appBar: AppBar(
         title: const DesignText.subheading('All Stories'),
-        actions: [
-          figmaUrlLauncher('https://www.figma.com/'),
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
