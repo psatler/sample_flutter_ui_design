@@ -2,6 +2,7 @@ import 'package:example/pages/home_page.dart';
 import 'package:example/pages/showcase_vanilla/showcase_view_vanilla.dart';
 import 'package:example/pages/storybook/storybook.dart';
 import 'package:example/pages/storybook/storybook_official_example.dart';
+import 'package:example/pages/widgetbook/widgetbook.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         StorybookFlutter.routeName: (context) => const StorybookFlutter(),
         StorybookOfficialExample.routeName: (context) =>
             const StorybookOfficialExample(),
+        WidgetBookFlutter.routeName: (context) => const WidgetBookFlutter()
       },
     );
   }
