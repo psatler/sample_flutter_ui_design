@@ -16,3 +16,8 @@ A new Flutter project.
 
 - [Figma Embed page](https://www.figma.com/developers/embed)
 
+## Running on development
+
+```
+flutter run -d chrome --web-renderer html
+```
