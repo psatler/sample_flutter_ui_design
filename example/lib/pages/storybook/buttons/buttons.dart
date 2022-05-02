@@ -1,4 +1,4 @@
-import 'package:example/utils/prefix_figma_url.dart';
+import 'package:example/pages/storybook/model/custom_story.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -8,10 +8,11 @@ import 'package:sample_flutter_design_ui/sample_flutter_design_ui.dart';
 
 String _prefixStoryName(String name) => 'Buttons/$name';
 
-final _normalButtonStory = Story(
+final _normalButtonStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Normal'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=3069%3A4907'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=3069%3A4907',
+
   // description: 'Default button',
   builder: (context) {
     final buttonText =
@@ -23,7 +24,7 @@ final _normalButtonStory = Story(
   },
 );
 
-final _disabledButtonStory = Story(
+final _disabledButtonStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Disabled'),
   description: 'Disabled button',
   builder: (context) {
@@ -42,7 +43,7 @@ final _disabledButtonStory = Story(
   },
 );
 
-final _busyButtonStory = Story(
+final _busyButtonStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Busy'),
   description: 'Button on a busy state such as performing an API request',
   builder: (context) {
@@ -61,7 +62,7 @@ final _busyButtonStory = Story(
   },
 );
 
-final _outlineButtonStory = Story(
+final _outlineButtonStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Outlined'),
   description: 'Outlined button',
   builder: (context) {
@@ -73,7 +74,7 @@ final _outlineButtonStory = Story(
   },
 );
 
-final _allButtonPropsStory = Story(
+final _allButtonPropsStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('All button props'),
   description: 'It allows to customize the props of the button',
   builder: (context) {
@@ -134,10 +135,11 @@ final _allButtonPropsStory = Story(
   },
 );
 
-final _buttonAllStories = Story(
+final _buttonAllStories = CustomStory.withFigmaUrl(
   name: _prefixStoryName('All stories'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2450%3A1245'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2450%3A1245',
+  description: 'All stories',
   builder: (context) {
     return Scaffold(
       appBar: AppBar(

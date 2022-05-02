@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:example/utils/prefix_figma_url.dart';
+import 'package:example/pages/storybook/model/custom_story.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
@@ -9,7 +9,7 @@ import 'package:example/widgets/widgets.dart';
 
 String _prefixStoryName(String name) => 'Text Styles/$name';
 
-final _heading1Story = Story(
+final _heading1Story = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Heading 1'),
   description: 'h1 - title - regular 34',
   builder: (context) {
@@ -19,17 +19,17 @@ final _heading1Story = Story(
   },
 );
 
-final _headlineStory = Story(
+final _headlineStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Headline'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2406%3A989'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2406%3A989',
   builder: (context) {
     final text = context.knobs.text(label: 'Insert text', initial: 'Headline');
     return DesignText.headline(text);
   },
 );
 
-final _heading2Story = Story(
+final _heading2Story = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Heading 2'),
   description: 'h2 - title - semi-bold 28',
   builder: (context) {
@@ -39,7 +39,7 @@ final _heading2Story = Story(
   },
 );
 
-final _heading3Story = Story(
+final _heading3Story = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Heading 3'),
   description: 'h3 - title - semi-bold 24',
   builder: (context) {
@@ -49,7 +49,7 @@ final _heading3Story = Story(
   },
 );
 
-final _subHeadingStory = Story(
+final _subHeadingStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Sub-heading'),
   description: 'subhead - regular 20',
   builder: (context) {
@@ -60,7 +60,7 @@ final _subHeadingStory = Story(
   },
 );
 
-final _bodyStory = Story(
+final _bodyStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Body text'),
   description: 'body - regular 16',
   builder: (context) {
@@ -71,7 +71,7 @@ final _bodyStory = Story(
   },
 );
 
-final _captionStory = Story(
+final _captionStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Caption'),
   description: 'caption regular 12',
   builder: (context) {
@@ -82,10 +82,11 @@ final _captionStory = Story(
   },
 );
 
-final _textStylesAllStories = Story(
+final _textStylesAllStories = CustomStory.withFigmaUrl(
   name: _prefixStoryName('All stories'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2381%3A1176'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2381%3A1176',
+  description: 'All Stories',
   builder: (context) {
     CrossAxisAlignment _crossAxisAlignment = context.knobs.options(
       label: 'Pick a horizontal alignment',

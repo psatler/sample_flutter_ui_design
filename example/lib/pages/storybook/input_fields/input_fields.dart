@@ -1,4 +1,4 @@
-import 'package:example/utils/prefix_figma_url.dart';
+import 'package:example/pages/storybook/model/custom_story.dart';
 import 'package:example/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -7,7 +7,7 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 
 String _prefixStoryName(String name) => 'Input fields/$name';
 
-final _normaInputFieldStory = Story(
+final _normaInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('Normal'),
   description: 'Default button',
   builder: (context) {
@@ -18,7 +18,7 @@ final _normaInputFieldStory = Story(
   },
 );
 
-final _withLeadingIconInputFieldStory = Story(
+final _withLeadingIconInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('With leading icon'),
   description: 'Input field with leading icon',
   builder: (context) {
@@ -30,7 +30,7 @@ final _withLeadingIconInputFieldStory = Story(
   },
 );
 
-final _withTrailingIconInputFieldStory = Story(
+final _withTrailingIconInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('With trailing icon'),
   description: 'Input field with trailing icon',
   builder: (context) {
@@ -38,7 +38,7 @@ final _withTrailingIconInputFieldStory = Story(
   },
 );
 
-final _passwordInputFieldStory = Story(
+final _passwordInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('As password field'),
   description: 'Input field with obscure text',
   builder: (context) {
@@ -46,7 +46,7 @@ final _passwordInputFieldStory = Story(
   },
 );
 
-final _showingErrorTextInputFieldStory = Story(
+final _showingErrorTextInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('With error text'),
   description: 'Input field with possibility of displaying an error text',
   builder: (context) {
@@ -54,10 +54,11 @@ final _showingErrorTextInputFieldStory = Story(
   },
 );
 
-final _withPropsInputFieldStory = Story(
+final _withPropsInputFieldStory = CustomStory.withFigmaUrl(
   name: _prefixStoryName('With custom input props'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816',
+
   // description: 'Allows using custom props for input field',
   builder: (context) {
     final inputPlaceholderText =
@@ -145,10 +146,11 @@ final _withPropsInputFieldStory = Story(
   },
 );
 
-final _inputFieldsAllStories = Story(
+final _inputFieldsAllStories = CustomStory.withFigmaUrl(
   name: _prefixStoryName('All stories'),
-  description: prefixFigmaUrl(
-      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816'),
+  figmaUrl:
+      'https://www.figma.com/file/h2JWnjXWHOhYbd68FsPb9i/Styleguide?node-id=2344%3A816',
+
   // description: 'All input fields',
   builder: (context) {
     return Scaffold(

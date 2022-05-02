@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:example/pages/storybook/model/custom_story.dart';
 import 'package:example/utils/custom_webview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -27,13 +30,15 @@ Widget _buildWrapper(BuildContext context, Widget? child) {
   final width = MediaQuery.of(context).size.width;
 
   final story =
-      context.select<StoryNotifier, Story?>((story) => story.currentStory);
+      context.select<StoryNotifier, Story?>((story) => story.currentStory)
+          as CustomStory;
 
-  // log('Story ${story?.description}');
+  // if (!kIsWeb ||
+  //     story.description == null ||
+  //     story.description?.startsWith('https://www.figma.com') == false) {
 
-  if (!kIsWeb ||
-      story?.description == null ||
-      story?.description?.startsWith('https://www.figma.com') == false) {
+  // ignore: unnecessary_null_comparison
+  if (!kIsWeb || story.prefixedFigmaUrl == null) {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Row(
@@ -43,6 +48,8 @@ Widget _buildWrapper(BuildContext context, Widget? child) {
       ),
     );
   }
+
+  log('story.prefixedFigmaUrl ${story.prefixedFigmaUrl}');
 
   return Directionality(
     textDirection: TextDirection.ltr,
@@ -63,7 +70,7 @@ Widget _buildWrapper(BuildContext context, Widget? child) {
               ),
               child: CustomWebView(
                 key: UniqueKey(),
-                webUrl: story?.description,
+                webUrl: story.prefixedFigmaUrl,
               ),
               // child: IframeView(
               //   key: UniqueKey(),

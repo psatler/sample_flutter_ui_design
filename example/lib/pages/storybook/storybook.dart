@@ -40,6 +40,7 @@ class StorybookFlutter extends StatelessWidget {
       appBar: AppBar(),
       body: Storybook(
         initialStory: textStylesStories.first.name,
+        showPanel: true,
         plugins: [
           ..._defaultPlugins,
           IframeStoryBookPlugin(),
