@@ -17,6 +17,11 @@ know whether this package might be useful for them.
 
 The web version is deployed at https://psatler.github.io/sample_flutter_ui_design/
 
+## Inspiration
+
+- [Asgard shop](https://github.com/aloisdeniel/asgard_shop)
+  - [Youtube](https://www.youtube.com/watch?v=lTy8odHcS5s&ab_channel=FlutterCommunity) companion video
+
 ## Features
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
